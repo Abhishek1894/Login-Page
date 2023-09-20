@@ -18,12 +18,14 @@
 
 .container{
 
+    /* if it is required to display in full page */
+    height: 100%;
+    width: 100%;
+
     /* assigning display of container as flex*/
     display: flex;
     border: 1px solid whitesmoke;
     border-radius: 5px;
-    width: 75%;
-    height: 90%;
     flex-wrap: wrap;
     overflow: auto;
 }
