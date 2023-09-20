@@ -81,6 +81,15 @@ button{
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid whitesmoke;
+    
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+button:active{
+    transform: scale(0.98);
 }
 
 #login{
