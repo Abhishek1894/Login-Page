@@ -19,22 +19,25 @@
 
             <div class="form">
 
-                <form action="" method="post">
+                <form action="welcome.html" id="login-form" onsubmit="return validate()">
                     <p>Welcome back<p>
                     <h2>Login to your account</h2>
 
-                    
+                        
                         <label for="mail" >Email</label>
                         <input type="email" id="mail" required>
-
+                        <span id = "email-error" class="error-message"></span>
+                        
                         <label for="password">Password</label>
-                        <input type="password" id="password" minlength="8" required>
+                        <input type="password" id="password" minlength="8" maxlenght="30" required>
+                        <span id = "password-error" class="error-message"></span>
+                
 
                         <div id="small-container">
                             <input type="radio" id="radio">
-                            <label for="remember" id="remember-me">Remember Me</label>
+                            <label for="remember" id="remember-me">Remember me</label>
 
-                            <a href="" title="Forgot Password" id="forgot-password">Forgot Password</a>
+                            <a href="" title="Forgot Password" id="forgot-password">Forgot password?</a>
                         </div>
 
                         <button id = "login" type="submit">Login Now</button>
@@ -47,5 +50,71 @@
                 
 
             </div>
+
+            <script>
+                // javascript for authentication
+
+                // email
+                const email = "abhishekainapur24@gmail.com"
+                // password
+                const password = "Abhishek@123";
+
+                // console.log(document.getElementById("mail").value);
+                // console.log(document.getElementById("password").value);
+
+                function validate()
+                {
+                    // whenever the button is clicked all span error message should dissappear
+                    resetSpan();
+
+                    let emailElement = document.getElementById("mail");
+                    let passwordElement = document.getElementById("password");
+
+                    let e = emailElement.value;
+                    let p = passwordElement.value;
+
+                    let usermail = e.trim();
+                    let userpass = p;
+
+                    if(usermail !== email)
+                    {
+                        showEmailError();
+                        return false;
+                    }
+
+                    if(userpass !== password)
+                    {
+                        showPasswordError();
+                        return false;
+                    }
+
+                    console.log("authentication successfull");
+
+                    return true;
+                }
+
+                function showEmailError()
+                {
+                    const error = document.getElementById("email-error");
+                    error.innerText = "Invalid E-mail";
+                    console.log(error);
+                }
+
+                function showPasswordError()
+                {
+                    const error = document.getElementById("password-error");
+                    error.innerText = "Incorrect Password";
+                    console.log(error);
+                }
+
+                function resetSpan()
+                {
+                    const error1 = document.getElementById("email-error");
+                    const error2 = document.getElementById("password-error");
+                    error1.innerText = "";
+                    error2.innerText = "";
+                }
+
+            </script>
     </body>
 </html>
